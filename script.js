@@ -9,7 +9,29 @@
  * and add them to the "productList" array using array.push()
  */
 
-var productList = []; //this is an array
+var productList = [];//this is an array
+
+var shoes1 = {
+    name:"Venture",
+    price: 79.95,
+    maker: "GEL"
+}
+var shoes2 = {
+    name: "woman unisex couple casual",
+    price: 32.99,
+    maker: "Jackshibo"
+}
+var shoes3 = {
+    name:"Gusto Cross Trainer",
+    price: 39.97,
+    maker: "Champion"
+}
+var shoes4 = {
+    name:"Adult Suede Classic shoe",
+    price: 168.32,
+    maker: "PUMA"
+}
+productList.push(shoes1,shoes2,shoes3,shoes4);
 
 //Your code here
 //Hint: productList.push(newObject) will add the object you just created to the array
@@ -22,7 +44,9 @@ console.log(productList[0]);
  * "The product [name] costs [price], and is a match"
  */
 for(var i = 0; i < productList.length; i++){
-
+if(productList[i].price<50.00){
+    console.log("The product"+productList[i].name+"cost"+productList[i].price+" and is a match");
+}
     //Your code here
 
     console.log();
@@ -35,6 +59,12 @@ for(var i = 0; i < productList.length; i++){
 //3.1 first, calculate total price using the for loop again
 
 //3.2 then, divide total price by the number of products, using proudctList.length
+var totalprice=0;
+for(var i = 0; i < productList.length; i++){
+    totalprice=totalprice+productList[i].price;
+}
+var Avrageprice=totalprice/productList.length;
+console.log(Avrageprice);
 
 
 /* Step 4
@@ -47,7 +77,11 @@ function comparePrice(p){
     var numOfMatchingProducts = 0;
 
     //Your code here
-
+    for(var i = 0; i < productList.length; i++){
+        if(productList[i].price<p){
+            numOfMatchingProducts=numOfMatchingProducts+1;
+        }
+    }
     return numOfMatchingProducts;
 }
 
